@@ -1,0 +1,38 @@
+<annotation>
+	<folder>images</folder>
+	<filename>Kadappa_New_508.jpg</filename>
+	<path>C:\Users\shaayan\Documents\USB drive\images\Kadappa_New_508.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>720</width>
+		<height>405</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bag</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>288</xmin>
+			<ymin>364</ymin>
+			<xmax>371</xmax>
+			<ymax>404</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>bag</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>408</xmin>
+			<ymin>29</ymin>
+			<xmax>468</xmax>
+			<ymax>104</ymax>
+		</bndbox>
+	</object>
+</annotation>

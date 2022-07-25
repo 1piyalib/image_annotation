@@ -1,0 +1,4 @@
+annotation_num, object_detected_model, object_detected_annotataion, Total_object,percent_accuracy
+1,746,367,1113,67.03
+2,1006,107,1113,90.39
+3,1095,18,1113,98.38
