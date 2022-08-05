@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import csv
 import numpy as np
-
+import pandas as pd
 
 def scatter_plot():
     plt.title("Random Scatter Plot") #title of scatter plot
@@ -23,8 +23,16 @@ def show_anotation_table():
     look at table_from_csv() function in nasa code
 
     """
+    # file_name = ""
+    # filepath = "csv_files\\file_and_bags.csv"
+    # file_name, bags, bags_after, changes = np.loadtxt(filepath, unpack = True, delimiter=',', skiprows=1)
+    #
+    # x = 0
 
-    filepath = 'C:\code\image_annotation\csv_files\file_andbags.csv'
+    filepath = "csv_files\\file_and_bags.csv"
+    df = pd.read_csv(filepath, sep=',')
+    plt.table(cellText=df.values, colLabels=df.columns, loc='center')
+    plt.show()
 
 
 def show_annotation_graph():
@@ -44,9 +52,9 @@ def show_annotation_graph():
 def size_of_model_vs_annotation_graph():
 
   """
-  read size_of_model vs annotation, plot scatter plot with 2 Y axis (or with two different colors)
+  read size_of_model_vs_annotation.csv, plot scatter plot with 2 Y axis (or with two different colors)
   """
-  filename=0#cant find what to read
+  filename= "csv_files\\sizeof_model_vs_annotation.csv"
   xvals, oneline, secondline = np.loadtxt(filename, unpack=True, delimiter=',', skiprows=1)
   ax1 = plt.subplot()
   first, = ax1.scatter(oneline, color='red')
@@ -55,7 +63,6 @@ def size_of_model_vs_annotation_graph():
   #the code below makes a legend so that you know which y value is which
   plt.legend([first, second], ["yval", "another yval"])
 
-pass
 
 def model_accuracy_graph():
 
@@ -80,4 +87,6 @@ def model_accuracy_graph():
 
 
 if __name__ == "__main__":
-    show_annotation_graph()
+    #show_anotation_table()
+    #show_annotation_graph()
+    size_of_model_vs_annotation_graph()
