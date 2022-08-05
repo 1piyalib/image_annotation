@@ -41,28 +41,43 @@ def show_annotation_graph():
     Show scatter graph from files_and_bag.csv where x is index and y is annotation.
     What happens when the first column is not a number
     """
-    filename = "files_and_bag.csv"
+    filename = "csv_files//files_and_bag.csv"
 
-    xval, yval = np.loadtxt(filename, unpack=True, delimiter=',', skiprows=1)
+    df = pd.read_csv(filename, sep=',')
 
-    plt.scatter(xval, yval)
+    plt.scatter(x_axis_data=df.values, y_axis_data=df.columns)
     plt.show()
 
 
 def size_of_model_vs_annotation_graph():
 
+
   """
   read size_of_model_vs_annotation.csv, plot scatter plot with 2 Y axis (or with two different colors)
   """
   filename= "csv_files\\sizeof_model_vs_annotation.csv"
-  xvals, oneline, secondline = np.loadtxt(filename, unpack=True, delimiter=',', skiprows=1)
-  ax1 = plt.subplot()
-  first, = ax1.scatter(oneline, color='red')
-  ax2 = ax1.twinx()
-  second, = ax2.scatter(secondline, color='orange')
-  #the code below makes a legend so that you know which y value is which
-  plt.legend([first, second], ["yval", "another yval"])
+  Index,size_model,size_annotation = np.loadtxt(filename, unpack = True, delimiter=',', skiprows=1)
 
+  #fig, ax1 = plt.subplots()
+
+  #ax2 = ax1.twinx()
+  #ax1.scatter(Index, size_model, color='b')
+  #ax2.scatter(Index, size_annotation, color='g')
+
+  #ax1.set_xlabel('index')
+  #ax1.set_ylabel('size_model', color='b')
+  #ax2.set_ylabel('size_annotation', color='g')
+
+  #plt.show()
+  plt.rcParams["figure.figsize"] = Index
+  plt.rcParams["figure.autolayout"] = True
+
+  ax1 = plt.subplot()
+  l1, = ax1.plot(size_model, color='red')
+  ax2 = ax1.twinx()
+  l2, = ax2.plot(size_annotation, color='orange')
+  plt.legend([l1, l2], ["size_model", "size_annotation"])
+  plt.show()
 
 def model_accuracy_graph():
 
@@ -88,5 +103,6 @@ def model_accuracy_graph():
 
 if __name__ == "__main__":
     #show_anotation_table()
+
     #show_annotation_graph()
     size_of_model_vs_annotation_graph()
